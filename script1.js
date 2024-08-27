@@ -17,21 +17,6 @@ if (imageSrc) fullscreenImage.src = decodeURIComponent(imageSrc);
 // Show the overlay
 document.getElementById('overlay').style.display = 'block';
 
-// Function to toggle full-screen mode
-function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-        // Enter fullscreen mode
-        fullscreenImage.requestFullscreen().catch((err) => {
-            console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
-        });
-    } else {
-        // Exit fullscreen mode
-        document.exitFullscreen().catch((err) => {
-            console.error(`Error attempting to exit fullscreen mode: ${err.message}`);
-        });
-    }
-}
-
 // Function to toggle zoom
 function toggleZoom() {
     if (isZoomed) {
@@ -43,23 +28,29 @@ function toggleZoom() {
     }
 }
 
-// Add event listener to the image to toggle full-screen mode on the first click
-// and to toggle zoom on subsequent clicks
-fullscreenImage.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-        toggleFullScreen();
-    } else {
-        toggleZoom();
-    }
-});
+// Add event listener to the image to toggle zoom on click
+fullscreenImage.addEventListener('click', toggleZoom);
 
-// Event listener for exiting fullscreen mode
+// Event listener for entering fullscreen mode
 document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement) {
         isZoomed = false;  // Reset zoom state
         fullscreenImage.classList.remove('zoomed');
     }
 });
+
+// Function to toggle full-screen mode when a button or some other element is clicked
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        fullscreenImage.requestFullscreen().catch((err) => {
+            console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen().catch((err) => {
+            console.error(`Error attempting to exit fullscreen mode: ${err.message}`);
+        });
+    }
+}
 
 // Check if Fullscreen API is supported
 if (document.fullscreenEnabled) {
