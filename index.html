@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Entod Pharmaceutical</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="android-chrome-48x48" sizes="48x48" href="/icons/5665b910-cc0e-4e46-a20e-8f515b9bc30b-2.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="android-chrome-192x192" sizes="192x192" href="/icons/android-chrome-192x192.png">
+    <link rel="android-chrome-512x512" sizes="512x512" href="/icons/android-chrome-512x512.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+</head>
+<body>
+    <div class="page-wrapper">
+    <div class="container">
+        <!-- Dark mode toggle button -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                </div> 
+                
+                </label>
+        </div>
+        
+            
+            <div class="header-image">
+                <img id="glotekImage" src="Images/1723848402944-removebg-preview.png" alt="Glotek">
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="searchButton">🔍</button>
+
+            </div>
+        
+        <div class="content">
+            <nav class="sidebar">
+                <ul>
+                    <li data-category="Surgical Range">Surgical Range</li>
+                    <li data-category="Anti-Glaucoma">Anti-Glaucoma</li>
+                    <li data-category="Dry Eye Range ">Dry Eye Range </li>
+                    <li data-category="Other Range">Other Range</li>
+                </ul>
+            </nav>
+            <div class="gallery">
+                <div class="fixed-section">
+                <h2 id="gallery-title">Select a Glotek Category</h2>
+            </div>
+            <div class="scrollable-section">
+                <div class="medicine-list" id="medicine-gallery">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Entod Pharmaceutical Pvt. Ltd. All rights reserved.</p>
+    </footer>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

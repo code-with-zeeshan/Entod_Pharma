@@ -1,0 +1,99 @@
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+.dark-mode .header-image img {
+    border: none;
+    
+}
+
+
+
+
+.dark-mode .sidebar {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .sidebar li {
+    background-color: #333; /* Slightly lighter background for sidebar items */
+    color: #e0e0e0; /* Light text color */
+}
+.dark-mode .sidebar li:hover {
+    background-color: #1abc9c; /* Or any other color you want for hover in dark mode */
+}
+.dark-mode .sidebar li.active {
+    background-color: #1abc9c;
+}
+
+.dark-mode .gallery {
+    background-color: #2c2c2c; /* Dark background for gallery */
+    color: #e0e0e0; /* Light text color */
+}
+.dark-mode #gallery-title {
+    color: #ffffff; /* Dark mode title color */
+}
+
+.dark-mode .gallery .medicine-item {
+    background-color: #1e1e1e; /* Dark background for medicine items */
+    border: 1px solid #333; /* Dark border for items */
+    color: #e0e0e0; /* Light text color */
+}
+
+.dark-mode .gallery .medicine-item:hover {
+    background-color: #333;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+.dark-mode .gallery .medicine-item h2 {
+    color: #ffffff; /* White text for medicine names */
+}
+
+.dark-mode .gallery .medicine-item p {
+    color: #b0b0b0; /* Lighter gray text for descriptions */
+}
+.dark-mode .search-container input[type="text"] {
+    border: 2px solid #555;
+    background-color: #333; /* Ensure input background is dark */
+    color: #ddd; /* Light text for input */
+}
+
+.dark-mode .search-container button {
+    background-color: #444;
+}
+
+.dark-mode .search-container button:hover {
+    background-color: #555;
+}
+
+
+
+
+/* Dark Mode Styles */
+body.dark-mode .slider {
+     background-color: #333; 
+}
+
+body.dark-mode .sun-icon {
+    color: #e0e0e0;
+}
+
+body.dark-mode .moon-icon {
+    color: #f39c12;
+}
+
+/* Search button specific styles */
+
+
+.dark-mode .search-container button {
+    background-color: #555; /* Slightly lighter for contrast */
+    border: 1px solid #777; /* Lighter border in dark mode */
+}
+
+/* Ensure input fields also adapt to dark mode */
+.dark-mode .footer {
+    background-color: #1e1e1e; /* Darker background for dark mode */
+    color: #e0e0e0; /* Light text color for dark mode */
+}
+
+
+

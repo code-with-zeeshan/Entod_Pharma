@@ -1,0 +1,201 @@
+/* General styles for smaller screens */
+@media screen  and (max-width: 1024px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+     
+    *{
+        margin: 0;
+        
+        box-sizing:border-box;
+    }
+
+    .header-image img {
+        max-width: 50%;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .gallery {
+        width: 100%;
+    }
+
+    .medicine-list {
+        flex-direction: row;
+        padding: 0;
+        display: flex;
+    }
+
+    .medicine-item {
+       /* width: 100%;*/
+        max-width: none;
+        margin-bottom: 20px;
+    }
+
+    #gallery-title {
+        font-size: 24px;
+    }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 768px) {
+    .header-image img {
+        max-width: 60%;
+    }
+
+    
+
+    .search-container {
+        top: 15px;
+        right: 15px;
+    }
+
+    .search-container input[type="text"].active {
+        width: calc(100% - 30px);
+    }
+
+    
+    h1 {
+        font-size: 28px;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .gallery {
+        padding: 15px;
+    }
+
+    .fixed-section {
+        padding: 8px;
+    }
+
+    .scrollable-section {
+        padding: 10px 0;
+    }
+
+    .medicine-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .medicine-item h2 {
+        font-size: 18px;
+    }
+
+    .medicine-item p {
+        font-size: 12px;
+    }
+
+    .details-container {
+        padding: 15px;
+    }
+
+    .back-button {
+        padding: 8px 12px;
+    }
+
+    .footer {
+        padding: 8px;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 479px) {
+   
+    
+    body {
+        font-size: 14px;
+    }
+
+    .gallery{
+
+        position: relative;
+        margin-bottom:30px;
+
+    }
+
+    #gallery-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #34495e;
+        text-align: left;
+        /*margin-bottom: 10px;*/
+         
+    }
+
+   
+
+    .container {
+        padding: 0 5px;
+    }
+
+    .header-image img {
+        max-width: 80%;
+    }
+
+    .search-container {
+        top: 10px;
+        right: 10px;
+    }
+
+    .search-container input[type="text"].active {
+        width: calc(100% - 20px);
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .sidebar {
+        padding: 10px;
+    }
+
+    .gallery {
+        padding: 10px;
+    }
+
+    .fixed-section {
+        padding: 5px;
+    }
+
+    .scrollable-section {
+        padding: 5px 0;
+    }
+
+    .medicine-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .medicine-item h2 {
+        font-size: 16px;
+    }
+
+    .medicine-item p {
+        font-size: 11px;
+    }
+
+    .details-container {
+        padding: 10px;
+    }
+
+    .back-button {
+        padding: 6px 10px;
+    }
+
+    .footer {
+        padding: 5px;
+    }
+}

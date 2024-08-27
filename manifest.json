@@ -1,0 +1,32 @@
+{
+    "name": "Entod Pharmaceutical",
+    "short_name": "Entod Pharma",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1abc9c",
+    "icons": [
+      {
+        "src": "/icons/5665b910-cc0e-4e46-a20e-8f515b9bc30b-2.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/apple-touch-icon.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+    
+      {
+        "src": "/icons/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

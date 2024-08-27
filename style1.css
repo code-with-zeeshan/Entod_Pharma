@@ -1,0 +1,58 @@
+/* General reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure the body and HTML take up the full height */
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Overlay style, covering the full viewport */
+.overlay {
+    position: relative;
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    animation: fadeIn 1s ease-in-out; /* Fade in animation */
+}
+
+/* Image style, ensuring it fits within the viewport without cropping */
+.fullscreen-image {
+    width: 100vw;  /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    object-fit: contain; /* Ensure the image fits within the container */
+    background-color: black; /* Set background color to black to fill any empty space */
+    filter: brightness(0.8);
+    transition: transform 0.5s ease, filter 0.5s ease-in-out; /* Transition for zoom and brightness change */
+}
+
+.fullscreen-image:fullscreen {
+    filter: brightness(1); /* Brighten image in fullscreen mode */
+}
+
+/* Zoom effect for the image */
+.fullscreen-image.zoomed {
+    transform: scale(2); /* Adjust the scale factor as needed */
+    cursor: zoom-out;
+}
+
+.fullscreen-image {
+    cursor: zoom-in;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
