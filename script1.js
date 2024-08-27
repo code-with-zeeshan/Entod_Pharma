@@ -9,6 +9,8 @@ const fullscreenImage = document.getElementById('fullscreenImage');
 let isZoomed = false;
 let initialPinchDistance = null;
 let currentScale = 1;
+let lastScale = 1;
+let pinchCenter = { x: 0, y: 0 };
 
 // Retrieve the query parameters
 const imageSrc = getQueryParam('image');
@@ -23,10 +25,12 @@ document.getElementById('overlay').style.display = 'block';
 function toggleZoom() {
     if (isZoomed) {
         currentScale = 1;
+        lastScale = 1;
         fullscreenImage.style.transform = `scale(${currentScale})`;
         isZoomed = false;
     } else {
         currentScale = 2;
+        lastScale = 2;
         fullscreenImage.style.transform = `scale(${currentScale})`;
         isZoomed = true;
     }
@@ -65,19 +69,27 @@ fullscreenImage.addEventListener('touchmove', (event) => {
         const touch1 = event.touches[0];
         const touch2 = event.touches[1];
 
-        // Calculate the distance between the two touch points
         const distance = Math.hypot(touch2.pageX - touch1.pageX, touch2.pageY - touch1.pageY);
 
         if (initialPinchDistance === null) {
             initialPinchDistance = distance;
+
+            // Calculate the center point of the pinch
+            pinchCenter = {
+                x: (touch1.pageX + touch2.pageX) / 2,
+                y: (touch1.pageY + touch2.pageY) / 2,
+            };
         } else {
             const scaleChange = distance / initialPinchDistance;
-            currentScale = Math.min(Math.max(1, scaleChange), 4); // Limit scale between 1 and 4
+            currentScale = Math.min(Math.max(lastScale * scaleChange, 1), 4);
+
+            fullscreenImage.style.transformOrigin = `${pinchCenter.x}px ${pinchCenter.y}px`;
             fullscreenImage.style.transform = `scale(${currentScale})`;
         }
     }
 });
 
 fullscreenImage.addEventListener('touchend', () => {
+    lastScale = currentScale;
     initialPinchDistance = null;
 });

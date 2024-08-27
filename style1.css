@@ -31,6 +31,7 @@ body, html {
     background-color: black; /* Set background color to black to fill any empty space */
     filter: brightness(0.8);
     transition: transform 0.3s ease, filter 0.3s ease-in-out; /* Transition for zoom and brightness change */
+    transform-origin: center center; /* Set initial transform origin */
 }
 
 .fullscreen-image:fullscreen {
