@@ -7,6 +7,8 @@ function getQueryParam(param) {
 // Get the relevant elements
 const fullscreenImage = document.getElementById('fullscreenImage');
 let isZoomed = false;
+let initialPinchDistance = null;
+let currentScale = 1;
 
 // Retrieve the query parameters
 const imageSrc = getQueryParam('image');
@@ -20,10 +22,12 @@ document.getElementById('overlay').style.display = 'block';
 // Function to toggle zoom
 function toggleZoom() {
     if (isZoomed) {
-        fullscreenImage.style.transform = 'scale(1)';
+        currentScale = 1;
+        fullscreenImage.style.transform = `scale(${currentScale})`;
         isZoomed = false;
     } else {
-        fullscreenImage.style.transform = 'scale(2)';
+        currentScale = 2;
+        fullscreenImage.style.transform = `scale(${currentScale})`;
         isZoomed = true;
     }
 }
@@ -53,4 +57,27 @@ document.addEventListener('fullscreenchange', () => {
         isZoomed = false;
         fullscreenImage.style.transform = 'scale(1)';
     }
+});
+
+// Pinch-to-zoom functionality for fullscreen mode on touch devices
+fullscreenImage.addEventListener('touchmove', (event) => {
+    if (event.touches.length === 2) {
+        const touch1 = event.touches[0];
+        const touch2 = event.touches[1];
+
+        // Calculate the distance between the two touch points
+        const distance = Math.hypot(touch2.pageX - touch1.pageX, touch2.pageY - touch1.pageY);
+
+        if (initialPinchDistance === null) {
+            initialPinchDistance = distance;
+        } else {
+            const scaleChange = distance / initialPinchDistance;
+            currentScale = Math.min(Math.max(1, scaleChange), 4); // Limit scale between 1 and 4
+            fullscreenImage.style.transform = `scale(${currentScale})`;
+        }
+    }
+});
+
+fullscreenImage.addEventListener('touchend', () => {
+    initialPinchDistance = null;
 });
