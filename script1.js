@@ -20,26 +20,18 @@ document.getElementById('overlay').style.display = 'block';
 // Function to toggle zoom
 function toggleZoom() {
     if (isZoomed) {
-        fullscreenImage.classList.remove('zoomed');
+        fullscreenImage.style.transform = 'scale(1)';
         isZoomed = false;
     } else {
-        fullscreenImage.classList.add('zoomed');
+        fullscreenImage.style.transform = 'scale(2)';
         isZoomed = true;
     }
 }
 
-// Add event listener to the image to toggle zoom on click
-fullscreenImage.addEventListener('click', toggleZoom);
+// Add event listener to the image to toggle zoom on double-click
+fullscreenImage.addEventListener('dblclick', toggleZoom);
 
-// Event listener for entering fullscreen mode
-document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement) {
-        isZoomed = false;  // Reset zoom state
-        fullscreenImage.classList.remove('zoomed');
-    }
-});
-
-// Function to toggle full-screen mode when a button or some other element is clicked
+// Function to toggle full-screen mode
 function toggleFullScreen() {
     if (!document.fullscreenElement) {
         fullscreenImage.requestFullscreen().catch((err) => {
@@ -52,9 +44,13 @@ function toggleFullScreen() {
     }
 }
 
-// Check if Fullscreen API is supported
-if (document.fullscreenEnabled) {
-    console.log('Fullscreen API is supported.');
-} else {
-    console.log('Fullscreen API is not supported.');
-}
+// Add event listener to the image to toggle full-screen mode on single click
+fullscreenImage.addEventListener('click', toggleFullScreen);
+
+// Event listener for exiting fullscreen mode
+document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+        isZoomed = false;
+        fullscreenImage.style.transform = 'scale(1)';
+    }
+});
